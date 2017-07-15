@@ -59,7 +59,33 @@ $(function(){
     window.location.href = '#';
   });
 
-  //ヘルプ
+  //リセット
+  $('#reset').on('touchstart', function(e){
+    e.preventDefault();
+    $(this).css('opacity',0.5);
+  });
+  $('#reset').on('touchend', function(e){
+    e.preventDefault();
+    $(this).css('opacity',1);
+    $(this).trigger('touched');
+  });
+  $('#reset').on('touched', function(e){
+    $('#oyako01').prop('checked', true);
+    $('#hora01').prop('checked', true);
+    $('#bakaze01').prop('checked', true);
+    $('#jikaze01').prop('checked', true);
+    $('#haishi01').prop('checked', true);
+    $('#settings-haishi li:nth-child(1) button').replaceWith('<li data-settings="oyako"><button data-oyako="oyako01">親</button></li>');
+    $('#settings-haishi li:nth-child(2) button').replaceWith('<li data-settings="hora"><button data-hora="hora01">ロン</button></li>');
+    $('#settings-haishi li:nth-child(3) button').replaceWith('<li data-settings="bakaze"><button data-bakaze="bakaze01">場風：東</button></li>');
+    $('#settings-haishi li:nth-child(4) button').replaceWith('<li data-settings="jicha"><button data-jicha="jicha01">自家：東</button></li>');
+    $('#settings-haishi li:nth-child(6) button').html('面子入力');
+    $('.disabled').removeClass('disabled');
+    $('*').prop('checked', false).prop('disabled', false);
+    resetHaishi();
+  });
+
+//ヘルプ
   $('#help-open').on('touchstart', function(e){
     e.preventDefault();
     $(this).attr('class', 'hover');

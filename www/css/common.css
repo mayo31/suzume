@@ -74,21 +74,35 @@ h3:before {
   margin-right: 5px;
 }
 
-#calc {
-  position: relative;
-  display: block;
-  width: 80%;
-  height: 40px;
-  line-height: 40px;
-  margin: 10px auto 0 auto;
-  padding: 0 1em;
-  color: rgba(136,183,137,1);
-  border: 1px solid rgba(136,183,137,1);
-  border-radius: 4px;
-  background: #fff;
-  vertical-align: middle;
+#calc-button-area {
+  padding: 0 12px;
 }
 
+#calc-button-area button {
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 1em;
+  border-radius: 4px;
+  vertical-align: middle;  
+}
+
+#calc {
+  width: 70%;
+  color: rgba(136,183,137,1);
+  background: #fff;
+  border: 1px solid rgba(136,183,137,1);
+}
+
+#reset {
+  width: calc(30% - 10px);
+  margin-right: 10px;
+  color: #fff;
+  background: rgba(200,200,200,1);
+  border: 1px solid rgba(200,200,200,1);
+}
+　
 #help-open {
   padding: 0;
 }
