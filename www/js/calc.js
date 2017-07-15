@@ -21,7 +21,7 @@ $(function(){
     bakaze = $('[data-bakaze]').data('bakaze').substr(6,2);
     jicha = $('[data-jicha]').data('jicha').substr(5,2);
     
-    if($('#haishi .landscape').length<1&&hora=='02'){$('#option-yaku37').prop('checked', true)}
+    if($('#haishi .landscape').length<1&&hora==='02'){$('#option-yaku37').prop('checked', true)}
     else{$('#option-yaku37').prop('checked', false)};
 
     if(!$('#haishi li').length){
@@ -33,22 +33,22 @@ $(function(){
     else if($('#haishi ul:last-child').is('[data-mentsu*="kan"]')){
       alert("右端をあがり牌にしてください（槓子であがれません）");
     }
-    else if($('.chitoi').length>0&&$('#option-yaku04').prop('checked')==true){
+    else if($('.chitoi').length>0&&$('#option-yaku04').prop('checked')===true){
       alert("搶槓であがれません（七対子）");
     }
-    else if($('.chitoi').length>0&&$('#option-yaku05').prop('checked')==true){
+    else if($('.chitoi').length>0&&$('#option-yaku05').prop('checked')===true){
       alert("嶺上開花であがれません（七対子）");
     }
-    else if($('[class*="kokushi"]').length>0&&$('#option-yaku04').prop('checked')==true){
+    else if($('[class*="kokushi"]').length>0&&$('#option-yaku04').prop('checked')===true){
       alert("搶槓であがれません（国士無双）");
     }
-    else if($('[class*="kokushi"]').length>0&&$('#option-yaku05').prop('checked')==true){
+    else if($('[class*="kokushi"]').length>0&&$('#option-yaku05').prop('checked')===true){
       alert("嶺上開花であがれません（国士無双）");
     }
-    else if($('#haishi [data-mentsu*="kan"]').length<1&&$('#option-yaku05').prop('checked')==true){
+    else if($('#haishi [data-mentsu*="kan"]').length<1&&$('#option-yaku05').prop('checked')===true){
       alert("嶺上開花であがれません（槓子がありません）");
     }
-    else if($('[class*="kokushi"]').length>0&&$('#haishi03').prop('checked')==true&&$('#haishi [data-mentsu="atama"]').length<1){
+    else if($('[class*="kokushi"]').length>0&&$('#haishi03').prop('checked')===true&&$('#haishi [data-mentsu="atama"]').length<1){
       alert("雀頭が設定されていません");
     }
     else if($('.chitoi').length<1&&$('[class*="kokushi"]').length<1&&$('#haishi[class="mentsu-input"] ul:not([data-mentsu="atama"])').length < 4){
@@ -57,40 +57,40 @@ $(function(){
     else if($('.chitoi').length<1&&$('[class*="kokushi"]').length<1&&!$('#haishi[class="mentsu-input"] [data-mentsu="atama"]').length){
       alert("雀頭がありません");
     }
-    else if($('#haishi .landscape').length>0&&$('#option-yaku01').prop('checked')==true){
+    else if($('#haishi .landscape').length>0&&$('#option-yaku01').prop('checked')===true){
       alert("ダブル立直はかけられません（鳴きあり）");
     }
-    else if($('#haishi .landscape').length>0&&$('#option-yaku02').prop('checked')==true){
+    else if($('#haishi .landscape').length>0&&$('#option-yaku02').prop('checked')===true){
       alert("立直はかけられません（鳴きあり）");
     }
-    else if($('#haishi .landscape').length>0&&$('#option-yaku08').prop('checked')==true){
+    else if($('#haishi .landscape').length>0&&$('#option-yaku08').prop('checked')===true){
       alert("天和であがれません（鳴きあり）");
     }
-    else if($('#haishi .landscape').length>0&&$('#option-yaku09').prop('checked')==true){
+    else if($('#haishi .landscape').length>0&&$('#option-yaku09').prop('checked')===true){
       alert("地和であがれません（鳴きあり）");
     }
-    else if(oyako=='01'&&$('#option-yaku09').prop('checked')==true){
+    else if(oyako==='01'&&$('#option-yaku09').prop('checked')===true){
       alert("親はあがれません（地和）");
     }
-    else if(oyako=='02'&&$('#option-yaku08').prop('checked')==true){
+    else if(oyako==='02'&&$('#option-yaku08').prop('checked')===true){
       alert("子はあがれません（天和）");
     }
-    else if(hora=='01'&&$('#option-yaku05').prop('checked')==true){
+    else if(hora==='01'&&$('#option-yaku05').prop('checked')===true){
       alert("ロンであがれません（嶺上開花）");
     }
-    else if(hora=='01'&&$('#option-yaku06').prop('checked')==true){
+    else if(hora==='01'&&$('#option-yaku06').prop('checked')===true){
       alert("ロンであがれません（海底摸月）");
     }
-    else if(hora=='01'&&$('#option-yaku08').prop('checked')==true){
+    else if(hora==='01'&&$('#option-yaku08').prop('checked')===true){
       alert("ロンであがれません（天和）");
     }
-    else if(hora=='01'&&$('#option-yaku09').prop('checked')==true){
+    else if(hora==='01'&&$('#option-yaku09').prop('checked')===true){
       alert("ロンであがれません（地和）");
     }
-    else if(hora=='02'&&$('#option-yaku04').prop('checked')==true){
+    else if(hora==='02'&&$('#option-yaku04').prop('checked')===true){
       alert("ツモであがれません（搶槓）");
     }
-    else if(hora=='02'&&$('#option-yaku07').prop('checked')==true){
+    else if(hora==='02'&&$('#option-yaku07').prop('checked')===true){
       alert("ツモであがれません（河底撈魚）");
     }
     else{
@@ -100,7 +100,7 @@ $(function(){
   $('#calc').on('touched', function(e){
     e.preventDefault();
     $('#haishi ul:last-child .landscape').removeClass('landscape');
-    if(hora=='01'&&$('#haishi .landscape').length<1){$('#haishi ul:last-child li:last-child').addClass('landscape').addClass('landscape-re');};
+    if(hora==='01'&&$('#haishi .landscape').length<1){$('#haishi ul:last-child li:last-child').addClass('landscape').addClass('landscape-re');};
     $('[id^="option-yaku"]:nth-of-type(n+10)').prop('checked',false);
     $('#result-haishi-table').html('');
     $('#result-yaku-table').html('');
@@ -109,7 +109,7 @@ $(function(){
       calc();
     };
     $('.landscape-re').removeClass('landscape').removeClass('landscape-re');
-    if(yaku==true){
+    if(yaku===true){
       /*
       //バックエンドに計算結果送信
       if($('#haishi').is('[class="mentsu-input"]')&&yakuman==false&&sanbaiman==false&&baiman==false&&haneman==false&&mangan==false){
@@ -260,7 +260,7 @@ function calc(){
         haiType = '中張牌';
         switch($(this).data('mentsu').substr(0,3)){
           case 'kot':
-            if($(this).is(':last-child')&&hora=='01'){
+            if($(this).is(':last-child')&&hora==='01'){
               mentsuType = '明刻'; fu = 2;
             }
             else {
@@ -397,7 +397,7 @@ function calc(){
         //比較する
         $.each(ipeikoArr,function(){
           if($.inArray(ipeiko[0],$(this))>=0&&$.inArray(ipeiko[1],$(this))>=0&&$.inArray(ipeiko[2],$(this))>=0){
-            if($('#option-yaku13').prop('checked')==true){
+            if($('#option-yaku13').prop('checked')===true){
               $('#option-yaku26').prop('checked', true);
               $('#option-yaku13').prop('checked', false);
             }
@@ -408,11 +408,11 @@ function calc(){
         });
         ipeikoArr.push(ipeiko);
       });
-      if($('#haishi .landscape').length>0&&hora=='02'){
+      if($('#haishi .landscape').length>0&&hora==='02'){
         $('#option-yaku13').prop('checked',false);
         $('#option-yaku26').prop('checked',false);        
       }
-      else if($('#haishi .landscape:not(.landscape-re)').length>0&&hora=='01'){
+      else if($('#haishi .landscape:not(.landscape-re)').length>0&&hora==='01'){
         $('#option-yaku13').prop('checked',false);
         $('#option-yaku26').prop('checked',false);        
       }
@@ -442,24 +442,24 @@ function calc(){
     if($('#haishi [data-mentsu*="kotsu"]').length > 0||$('#haishi [data-mentsu*="kan"]').length > 0){
       $('#option-yaku11').prop('checked', false);
       if($('#haishi [data-hai*="d01"]').length>2){
-        if(jicha=='01'&&bakaze=='01'){$('#option-yaku40').prop('checked', true);}
-        else if(jicha=='01'){$('#option-yaku38').prop('checked', true);}
-        else if(bakaze=='01'){$('#option-yaku39').prop('checked', true);};
+        if(jicha==='01'&&bakaze==='01'){$('#option-yaku40').prop('checked', true);}
+        else if(jicha==='01'){$('#option-yaku38').prop('checked', true);}
+        else if(bakaze==='01'){$('#option-yaku39').prop('checked', true);};
       };
       if($('#haishi [data-hai*="d02"]').length>2){
-        if(jicha=='02'&&bakaze=='02'){$('#option-yaku40').prop('checked', true);}
-        else if(jicha=='02'){$('#option-yaku38').prop('checked', true);}
-        else if(bakaze=='02'){$('#option-yaku39').prop('checked', true);};
+        if(jicha==='02'&&bakaze==='02'){$('#option-yaku40').prop('checked', true);}
+        else if(jicha==='02'){$('#option-yaku38').prop('checked', true);}
+        else if(bakaze==='02'){$('#option-yaku39').prop('checked', true);};
       };
       if($('#haishi [data-hai*="d03"]').length>2){
-        if(jicha=='03'&&bakaze=='03'){$('#option-yaku40').prop('checked', true);}
-        else if(jicha=='03'){$('#option-yaku38').prop('checked', true);}
-        else if(bakaze=='03'){$('#option-yaku39').prop('checked', true);};
+        if(jicha==='03'&&bakaze==='03'){$('#option-yaku40').prop('checked', true);}
+        else if(jicha==='03'){$('#option-yaku38').prop('checked', true);}
+        else if(bakaze==='03'){$('#option-yaku39').prop('checked', true);};
       };
       if($('#haishi [data-hai*="d04"]').length>2){
-        if(jicha=='04'&&bakaze=='04'){$('#option-yaku40').prop('checked', true);}
-        else if(jicha=='04'){$('#option-yaku38').prop('checked', true);}
-        else if(bakaze=='04'){$('#option-yaku39').prop('checked', true);};
+        if(jicha==='04'&&bakaze==='04'){$('#option-yaku40').prop('checked', true);}
+        else if(jicha==='04'){$('#option-yaku38').prop('checked', true);}
+        else if(bakaze==='04'){$('#option-yaku39').prop('checked', true);};
       };
       if($('#haishi [data-hai*="d05"]').length>2){yakuhai+=1;$('#option-yaku10').prop('checked', true)};
       if($('#haishi [data-hai*="d06"]').length>2){yakuhai+=1;$('#option-yaku10').prop('checked', true)};
@@ -494,17 +494,17 @@ function calc(){
           else if($('#haishi [data-mentsu*="kotsu"] .landscape-re').length>0){
             $('#option-yaku15').prop('checked', true);
           }
-          else if(hora=='02'&&$('#haishi [data-mentsu*="kotsu"] .landscape').length==1){
+          else if(hora==='02'&&$('#haishi [data-mentsu*="kotsu"] .landscape').length==1){
             $('#option-yaku15').prop('checked', true);
           }
-          else if(hora=='01'&&$('#haishi [data-mentsu*="kotsu"] .landscape').length==1){
+          else if(hora==='01'&&$('#haishi [data-mentsu*="kotsu"] .landscape').length==1){
             if($('#haishi [data-mentsu="atama"]').is(':last-child')){
               $('#option-yaku15').prop('checked', true);
             };
           };
           break;
       };
-      if($('#option-yaku28').prop('checked')===true&&hora==="01"){
+      if($('#option-yaku28').prop('checked')====true&&hora==="01"){
           $('#option-yaku14').prop('checked', true);
           $('#option-yaku15').prop('checked', true);
           $('#option-yaku28').prop('checked', false);       
@@ -607,16 +607,16 @@ function calc(){
   	tr = '';
 
     //符テーブル書き出し
-    if($('#option-yaku11').prop('checked')==true&&$('#option-yaku37').prop('checked')==true&&hora=='02'){
+    if($('#option-yaku11').prop('checked')===true&&$('#option-yaku37').prop('checked')===true&&hora==='02'){
       tr+='<tr><th>平和ツモ</th><td colspan="3">20符</td></tr>';
     }
-    else if($('#option-yaku11').prop('checked')==true&&$('#option-yaku37').prop('checked')==false&&$('.landscape:not(.landscape-re)').length>0){
+    else if($('#option-yaku11').prop('checked')===true&&$('#option-yaku37').prop('checked')==false&&$('.landscape:not(.landscape-re)').length>0){
       tr+='<tr><th>鳴き平和</th><td colspan="3">30符</td></tr>';
       fuResult += 10;
     }
     else {
-      if($('.landscape:not(.landscape-re)').length<1&&hora=='01'){tr+='<tr><th>門前ロン</th><td colspan="3">10符</td></tr>';fuResult += 10;}
-      else if($('#option-yaku11').prop('checked')==false&&hora=='02'){tr+='<tr><th>ツモ</th><td colspan="3">2符</td></tr>';fuResult += 2;};
+      if($('.landscape:not(.landscape-re)').length<1&&hora==='01'){tr+='<tr><th>門前ロン</th><td colspan="3">10符</td></tr>';fuResult += 10;}
+      else if($('#option-yaku11').prop('checked')==false&&hora==='02'){tr+='<tr><th>ツモ</th><td colspan="3">2符</td></tr>';fuResult += 2;};
       tr += '<tr><th>副底</th><td colspan="3">20符</td></tr>';
     };
     $('#result-haishi-table').append(tr);
@@ -668,12 +668,12 @@ function calc(){
     $('#option-yaku20').prop('checked', false);
     $('#option-yaku22').prop('checked', false);
   };
-  if($('#option-yaku22').prop('checked')===true){
+  if($('#option-yaku22').prop('checked')====true){
     $('#option-yaku20').prop('checked', false);
   };
 
   //食い下がり・門前チェック
-  if(hora=='02'&&$('#haishi .landscape').length>0){
+  if(hora==='02'&&$('#haishi .landscape').length>0){
     $('#option-yaku16').data('fan', 1);
     $('#option-yaku19').data('fan', 1);
     $('#option-yaku20').data('fan', 1);
@@ -682,7 +682,7 @@ function calc(){
     $('#option-yaku27').data('fan', 5);
     $('#option-yaku11').prop('checked',false);
   }
-  else if(hora=='01'&&$('.landscape:not(.landscape-re)').length>0){
+  else if(hora==='01'&&$('.landscape:not(.landscape-re)').length>0){
     $('#option-yaku16').data('fan', 1);
     $('#option-yaku19').data('fan', 1);
     $('#option-yaku20').data('fan', 1);
@@ -783,11 +783,11 @@ fan = 0;
     $('#result-scores').html('');
   
     $.getJSON('data/json/score.json', function(data) {
-      if(yakuman==true){scoreKey = 'yakuman';}
-      else if(sanbaiman==true){scoreKey = 'sanbaiman';}
-      else if(baiman==true){scoreKey = 'baiman';}
-      else if(haneman==true){scoreKey = 'haneman';}
-      else if(mangan==true){scoreKey = 'mangan';}
+      if(yakuman===true){scoreKey = 'yakuman';}
+      else if(sanbaiman===true){scoreKey = 'sanbaiman';}
+      else if(baiman===true){scoreKey = 'baiman';}
+      else if(haneman===true){scoreKey = 'haneman';}
+      else if(mangan===true){scoreKey = 'mangan';}
       else{
         scoreKey = fan + '_' + fuResult;
       };
