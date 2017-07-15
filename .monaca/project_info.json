@@ -13,15 +13,6 @@
             ]
         }
     },
-    "title-ja": "suzume",
-    "title-en": "",
-    "description-ja": "麻雀点数計算アプリsuzume",
-    "description-en": "",
-    "category": "User Template",
-    "platform": [
-        "android"
-    ],
-    "name": "generated-1446477615-55c89f0ffd1734c569c36370",
     "external_plugins": [
         "cordova-plugin-splashscreen@2.1.0",
         "cordova-plugin-inappbrowser@1.0.1",
