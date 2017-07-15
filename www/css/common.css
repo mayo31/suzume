@@ -201,12 +201,11 @@ h3:before {
   display: inline-block;
   width: 30px;
   height: 30px;
-  line-height: 30px;
   margin: 10px;
-  color: #89B788;
   border-radius: 50%;
   background: #fff;
-  text-align: center;
-  font-size: 1.5rem;
-  vertical-align: middle;
+}
+
+#help-open svg path {
+  fill: #89B788;
 }
