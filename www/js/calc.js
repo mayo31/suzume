@@ -461,7 +461,7 @@ function calc(){
       $('#option-yaku10').data('fan', yakuhai);
       switch($('#haishi [data-mentsu*="kotsu"]').length){
         case 1:
-          if($('#haishi [data-mentsu*="kotsu"] .landscape').length<2&&$('#haishi [data-mentsu*="ankan"]').length==2){
+          if($('#haishi [data-mentsu*="kotsu"] .landscape').length<2&&$('#haishi [data-mentsu*="ankan"]').length===2){
             $('#option-yaku15').prop('checked', true);          
           }
           break;
@@ -469,7 +469,7 @@ function calc(){
           if($('#haishi [data-mentsu*="kotsu"] .landscape').length<2&&$('#haishi [data-mentsu*="ankan"]').length===1){
             $('#option-yaku15').prop('checked', true);          
           }
-          else if($('#haishi [data-mentsu*="kotsu"] .landscape').length<1&&$('#haishi [data-mentsu*="ankan"]').length==2){
+          else if($('#haishi [data-mentsu*="kotsu"] .landscape').length<1&&$('#haishi [data-mentsu*="ankan"]').length===2){
             $('#option-yaku28').prop('checked', true);          
           }
           break;
@@ -538,7 +538,7 @@ function calc(){
       switch($('#haishi ul:last-child :last-child').data('hai').substr(1,2)){
         case '01':
           fu = 0;
-      		break;
+        	break;
   			case '02':
     			if($('#haishi ul:last-child [data-hai*="01"]').length>0&&$('#haishi ul:last-child [data-hai*="03"]').length>0){
   					kanchan = true;
