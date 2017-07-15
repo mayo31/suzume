@@ -1408,3 +1408,6 @@ header {
   bottom: 178px;
 }
 
+#result-haishi-table [data-mentsu*="kan"] {
+  transform: scale(0.9);
+}
