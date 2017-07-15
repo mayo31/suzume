@@ -74,19 +74,29 @@ h3:before {
   margin-right: 5px;
 }
 
-#calc {
+#calc-button-area button {
   position: relative;
-  display: block;
-  width: 80%;
+  display: inline-block;
   height: 40px;
   line-height: 40px;
   margin: 10px auto 0 auto;
   padding: 0 1em;
-  color: rgba(136,183,137,1);
-  border: 1px solid rgba(136,183,137,1);
   border-radius: 4px;
   background: #fff;
-  vertical-align: middle;
+  vertical-align: middle;  
+}
+
+#calc {
+  width: 70%;
+  color: rgba(136,183,137,1);
+  border: 1px solid rgba(136,183,137,1);
+}
+
+#reset {
+  width: calc(30% - 20px);
+  margin-right: 20px;  
+  color: rgba(150,150,150,1);
+  border: 1px solid rgba(150,150,150,1);
 }
 
 #help-open {
