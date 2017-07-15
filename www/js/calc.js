@@ -112,7 +112,7 @@ $(function(){
     if(yaku===true){
       /*
       //バックエンドに計算結果送信
-      if($('#haishi').is('[class="mentsu-input"]')&&yakuman==false&&sanbaiman==false&&baiman==false&&haneman==false&&mangan==false){
+      if($('#haishi').is('[class="mentsu-input"]')&&yakuman===false&&sanbaiman===false&&baiman===false&&haneman===false&&mangan===false){
         fungoSet();
       };
       */
@@ -401,7 +401,7 @@ function calc(){
               $('#option-yaku26').prop('checked', true);
               $('#option-yaku13').prop('checked', false);
             }
-            else if($('#option-yaku26').prop('checked')==false) {
+            else if($('#option-yaku26').prop('checked')===false) {
               $('#option-yaku13').prop('checked', true);
             };
           };
@@ -472,7 +472,7 @@ function calc(){
           }
           break;
         case 2:
-          if($('#haishi [data-mentsu*="kotsu"] .landscape').length<2&&$('#haishi [data-mentsu*="ankan"]').length==1){
+          if($('#haishi [data-mentsu*="kotsu"] .landscape').length<2&&$('#haishi [data-mentsu*="ankan"]').length===1){
             $('#option-yaku15').prop('checked', true);          
           }
           else if($('#haishi [data-mentsu*="kotsu"] .landscape').length<1&&$('#haishi [data-mentsu*="ankan"]').length==2){
@@ -480,7 +480,7 @@ function calc(){
           };
           break;
         case 3:
-          if($('#haishi [data-mentsu*="ankan"]').length==1){
+          if($('#haishi [data-mentsu*="ankan"]').length===1){
             $('#option-yaku28').prop('checked', true);          
           }
           else if($('#haishi [data-mentsu*="kotsu"] .landscape').length<1){
@@ -494,17 +494,17 @@ function calc(){
           else if($('#haishi [data-mentsu*="kotsu"] .landscape-re').length>0){
             $('#option-yaku15').prop('checked', true);
           }
-          else if(hora==='02'&&$('#haishi [data-mentsu*="kotsu"] .landscape').length==1){
+          else if(hora==='02'&&$('#haishi [data-mentsu*="kotsu"] .landscape').length===1){
             $('#option-yaku15').prop('checked', true);
           }
-          else if(hora==='01'&&$('#haishi [data-mentsu*="kotsu"] .landscape').length==1){
+          else if(hora==='01'&&$('#haishi [data-mentsu*="kotsu"] .landscape').length===1){
             if($('#haishi [data-mentsu="atama"]').is(':last-child')){
               $('#option-yaku15').prop('checked', true);
             };
           };
           break;
       };
-      if($('#option-yaku28').prop('checked')====true&&hora==="01"){
+      if($('#option-yaku28').prop('checked')===true&&hora==="01"){
           $('#option-yaku14').prop('checked', true);
           $('#option-yaku15').prop('checked', true);
           $('#option-yaku28').prop('checked', false);       
@@ -610,13 +610,13 @@ function calc(){
     if($('#option-yaku11').prop('checked')===true&&$('#option-yaku37').prop('checked')===true&&hora==='02'){
       tr+='<tr><th>平和ツモ</th><td colspan="3">20符</td></tr>';
     }
-    else if($('#option-yaku11').prop('checked')===true&&$('#option-yaku37').prop('checked')==false&&$('.landscape:not(.landscape-re)').length>0){
+    else if($('#option-yaku11').prop('checked')===true&&$('#option-yaku37').prop('checked')===false&&$('.landscape:not(.landscape-re)').length>0){
       tr+='<tr><th>鳴き平和</th><td colspan="3">30符</td></tr>';
       fuResult += 10;
     }
     else {
       if($('.landscape:not(.landscape-re)').length<1&&hora==='01'){tr+='<tr><th>門前ロン</th><td colspan="3">10符</td></tr>';fuResult += 10;}
-      else if($('#option-yaku11').prop('checked')==false&&hora==='02'){tr+='<tr><th>ツモ</th><td colspan="3">2符</td></tr>';fuResult += 2;};
+      else if($('#option-yaku11').prop('checked')===false&&hora==='02'){tr+='<tr><th>ツモ</th><td colspan="3">2符</td></tr>';fuResult += 2;};
       tr += '<tr><th>副底</th><td colspan="3">20符</td></tr>';
     };
     $('#result-haishi-table').append(tr);
@@ -668,7 +668,7 @@ function calc(){
     $('#option-yaku20').prop('checked', false);
     $('#option-yaku22').prop('checked', false);
   };
-  if($('#option-yaku22').prop('checked')====true){
+  if($('#option-yaku22').prop('checked')===true){
     $('#option-yaku20').prop('checked', false);
   };
 
