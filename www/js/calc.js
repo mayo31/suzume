@@ -516,13 +516,13 @@ function calc(){
       switch($('#haishi [data-mentsu*="kan"]').length){
         case 3:
           $('#option-yaku23').prop('checked', true);
-          if($('#haishi [data-mentsu*="kotsu"]').length>0&&$('#haishi .landscape').length<1){
+          if($('#haishi [data-mentsu*="kotsu"]').length>0&&$('#haishi [data-mentsu*="ankan"]').length===3){
             $('#option-yaku28').prop('checked', true);
           };
           break;
         case 4:
           $('#option-yaku36').prop('checked', true);
-          if($('#haishi .landscape').length<1){
+          if($('#haishi [data-mentsu*="ankan"]').length===4){
             $('#option-yaku28').prop('checked', true);
           };
           break;
