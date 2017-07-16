@@ -1,8 +1,7 @@
 //alertModal-modal
 function alertModal(text){
-  console.log(text);
-  $('#alertModal-modal p').html(text);
-  $('#alertModal-modal').css('display','block');
+  $('#alert-modal p').html(text);
+  $('#alert-modal').css('display','block');
 }
 
 $(function(){
@@ -31,7 +30,8 @@ $(function(){
     e.preventDefault();
     //一発選択中の立直チェック
     if($('#option-yaku03').is(':checked') && !$('#option-yaku01').is(':checked') && !$('#option-yaku02').is(':checked')){
-      alertModal('「ダブル立直」または「立直」を選択してください');
+      $('#option-yaku03').prop('checked', false);
+      alertModal('「ダブル立直」または「立直」が選択されていません');
     } else {$('.overlay').css('display', 'none');}
     //social
     if($('.social-open').length>0){$('.social-open').removeClass('social-open')};
