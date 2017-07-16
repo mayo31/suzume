@@ -538,7 +538,7 @@ function calc(){
       switch($('#haishi ul:last-child :last-child').data('hai').substr(1,2)){
         case '01':
           fu = 0;
-      		break;
+        	break;
   			case '02':
     			if($('#haishi ul:last-child [data-hai*="01"]').length>0&&$('#haishi ul:last-child [data-hai*="03"]').length>0){
   					kanchan = true;
@@ -753,7 +753,7 @@ fan = 0;
   }
 
   if(moreHai){
-    alertModal('5つ以上存在する牌があります');
+    alertModal("5つ以上存在する牌があります");
     yaku = false;
   }
   else if($('[name="option-yaku"]:checked').length<1){
