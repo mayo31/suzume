@@ -134,3 +134,8 @@ $(function(){
   });
 });
 
+//alert-modal
+function alertModal(text){
+  $('#alert-modal p').html(text);
+  $('#alert-modal').css('display','block');
+}

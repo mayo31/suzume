@@ -25,7 +25,7 @@ $(function(){
     else{$('#option-yaku37').prop('checked', false);}
 
     if(!$('#haishi li').length){
-      alert("面子を設定してください");
+      alertModal("面子を設定してください");
     }
     else if($('#haishi [data-hai=""]').length > 0){
       alert("未入力の牌があります");
