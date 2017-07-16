@@ -1,3 +1,10 @@
+//alert-modal
+function alertModal(text){
+  console.log(text);
+  $('#alert-modal p').html(text);
+  $('#alert-modal').css('display','block');
+}
+
 $(function(){
   //画面向き判定
   $(window).on("load orientationchange resize", function() {
@@ -132,10 +139,5 @@ $(function(){
       };
     };
   });
-});
 
-//alert-modal
-function alertModal(text){
-  $('#alert-modal p').html(text);
-  $('#alert-modal').css('display','block');
-}
+});
