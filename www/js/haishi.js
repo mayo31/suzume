@@ -61,7 +61,7 @@ $(function(){
     e.stopPropagation();
     if(re){
       if($('#key-enter.disabled').length>0){
-        alert("順子の入力が途中です");
+        alertModal("順子の入力が途中です");
         $(this).parent().removeAttr('style');
       }
       else {

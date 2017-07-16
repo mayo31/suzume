@@ -84,7 +84,7 @@ $(function(){
     e.preventDefault();
     if(! $('#currentHai').length){
       $(this).removeClass('key-hover');
-      alert('入力できる面子がありません');
+      alertModal('入力できる面子がありません');
       return false;
     }
     $(this).addClass('key-hover');

@@ -28,70 +28,70 @@ $(function(){
       alertModal("面子を設定してください");
     }
     else if($('#haishi [data-hai=""]').length > 0){
-      alert("未入力の牌があります");
+      alertModal("未入力の牌があります");
     }
     else if($('#haishi ul:last-child').is('[data-mentsu*="kan"]')){
-      alert("右端をあがり牌にしてください（槓子であがれません）");
+      alertModal("右端をあがり牌にしてください（槓子であがれません）");
     }
     else if($('.chitoi').length>0&&$('#option-yaku04').prop('checked')===true){
-      alert("搶槓であがれません（七対子）");
+      alertModal("搶槓であがれません（七対子）");
     }
     else if($('.chitoi').length>0&&$('#option-yaku05').prop('checked')===true){
-      alert("嶺上開花であがれません（七対子）");
+      alertModal("嶺上開花であがれません（七対子）");
     }
     else if($('[class*="kokushi"]').length>0&&$('#option-yaku04').prop('checked')===true){
-      alert("搶槓であがれません（国士無双）");
+      alertModal("搶槓であがれません（国士無双）");
     }
     else if($('[class*="kokushi"]').length>0&&$('#option-yaku05').prop('checked')===true){
-      alert("嶺上開花であがれません（国士無双）");
+      alertModal("嶺上開花であがれません（国士無双）");
     }
     else if($('#haishi [data-mentsu*="kan"]').length<1&&$('#option-yaku05').prop('checked')===true){
-      alert("嶺上開花であがれません（槓子がありません）");
+      alertModal("嶺上開花であがれません（槓子がありません）");
     }
     else if($('[class*="kokushi"]').length>0&&$('#haishi03').prop('checked')===true&&$('#haishi [data-mentsu="atama"]').length<1){
-      alert("雀頭が設定されていません");
+      alertModal("雀頭が設定されていません");
     }
     else if($('.chitoi').length<1&&$('[class*="kokushi"]').length<1&&$('#haishi[class="mentsu-input"] ul:not([data-mentsu="atama"])').length < 4){
-      alert("面子が足りません");
+      alertModal("面子が足りません");
     }
     else if($('.chitoi').length<1&&$('[class*="kokushi"]').length<1&&!$('#haishi[class="mentsu-input"] [data-mentsu="atama"]').length){
-      alert("雀頭がありません");
+      alertModal("雀頭がありません");
     }
     else if($('#haishi .landscape').length>0&&$('#option-yaku01').prop('checked')===true){
-      alert("ダブル立直はかけられません（鳴きあり）");
+      alertModal("ダブル立直はかけられません（鳴きあり）");
     }
     else if($('#haishi .landscape').length>0&&$('#option-yaku02').prop('checked')===true){
-      alert("立直はかけられません（鳴きあり）");
+      alertModal("立直はかけられません（鳴きあり）");
     }
     else if($('#haishi .landscape').length>0&&$('#option-yaku08').prop('checked')===true){
-      alert("天和であがれません（鳴きあり）");
+      alertModal("天和であがれません（鳴きあり）");
     }
     else if($('#haishi .landscape').length>0&&$('#option-yaku09').prop('checked')===true){
-      alert("地和であがれません（鳴きあり）");
+      alertModal("地和であがれません（鳴きあり）");
     }
     else if(oyako==='01'&&$('#option-yaku09').prop('checked')===true){
-      alert("親はあがれません（地和）");
+      alertModal("親はあがれません（地和）");
     }
     else if(oyako==='02'&&$('#option-yaku08').prop('checked')===true){
-      alert("子はあがれません（天和）");
+      alertModal("子はあがれません（天和）");
     }
     else if(hora==='01'&&$('#option-yaku05').prop('checked')===true){
-      alert("ロンであがれません（嶺上開花）");
+      alertModal("ロンであがれません（嶺上開花）");
     }
     else if(hora==='01'&&$('#option-yaku06').prop('checked')===true){
-      alert("ロンであがれません（海底摸月）");
+      alertModal("ロンであがれません（海底摸月）");
     }
     else if(hora==='01'&&$('#option-yaku08').prop('checked')===true){
-      alert("ロンであがれません（天和）");
+      alertModal("ロンであがれません（天和）");
     }
     else if(hora==='01'&&$('#option-yaku09').prop('checked')===true){
-      alert("ロンであがれません（地和）");
+      alertModal("ロンであがれません（地和）");
     }
     else if(hora==='02'&&$('#option-yaku04').prop('checked')===true){
-      alert("ツモであがれません（搶槓）");
+      alertModal("ツモであがれません（搶槓）");
     }
     else if(hora==='02'&&$('#option-yaku07').prop('checked')===true){
-      alert("ツモであがれません（河底撈魚）");
+      alertModal("ツモであがれません（河底撈魚）");
     }
     else{
       $(this).trigger('touched');
@@ -753,11 +753,11 @@ fan = 0;
   }
 
   if(moreHai){
-    alert('5つ以上存在する牌があります');
+    alertModal('5つ以上存在する牌があります');
     yaku = false;
   }
   else if($('[name="option-yaku"]:checked').length<1){
-    alert("役がありません");
+    alertModal("役がありません");
     yaku = false;
   }
   else{
