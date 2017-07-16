@@ -1362,7 +1362,7 @@ table[id*="result"] td:last-child {
 
 
 
-/* iOS */
+/* iOS 
 
 body {
   padding-top: 60px!important;
@@ -1416,3 +1416,5 @@ header {
 #result-haishi-table [data-mentsu*="kan"] {
   transform: scale(0.85);
 }
+
+*/
