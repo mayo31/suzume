@@ -1195,7 +1195,7 @@ table[id*="result"] td:last-child {
 /*-- アコーディオンリスト --*/
 .accordion-list01 {
   margin: 15px;
-	border: 1px solid #89B788;
+    border: 1px solid #89B788;
   border-radius: 4px;
   font-size: 1.2rem;
 }
@@ -1361,9 +1361,6 @@ table[id*="result"] td:last-child {
 }
 
 
-
-/* iOS 
-
 body {
   padding-top: 60px!important;
 }
@@ -1416,5 +1413,3 @@ header {
 #result-haishi-table [data-mentsu*="kan"] {
   transform: scale(0.85);
 }
-
-*/

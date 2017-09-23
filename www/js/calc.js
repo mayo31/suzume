@@ -219,7 +219,7 @@ function calc(){
           fu = 2;
           switch(atama){
             case bakaze:
-              if(bakaze==jicha){
+              if(bakaze===jicha){
                 fu += 2;
                 tr += '連風牌</td><td>4符</td></tr>';
               }
@@ -252,8 +252,8 @@ function calc(){
       }
       else {
         haiType = '中張牌';
-        switch($(this).data('mentsu').substr(0,3)){
-          case 'kot':
+        switch($(this).data('mentsu').substr(0,5)){
+          case 'minko':
             if($(this).is(':last-child')&&hora==='01'){
               mentsuType = '明刻'; fu = 2;
             }
@@ -266,20 +266,33 @@ function calc(){
               }
             }
             break;
-          case 'shu':
+          case 'anko0':
+            if($(this).is(':last-child')&&hora==='01'){
+              mentsuType = '明刻'; fu = 2;
+            }
+            else {
+              if($(this).find($('.landscape')).length > 0){
+                mentsuType = '明刻'; fu = 2;
+              }
+              else{
+                mentsuType = '暗刻'; fu = 4;
+              }
+            }
+            break;
+          case 'shunt':
             shuntsu = true;
             mentsuType = '順子';
             fu = 0;
             break;
-          case 'ank':
+          case 'ankan':
             mentsuType = '暗槓';
             fu = 16;
             break;
-          case 'kan':
+          case 'minka':
             mentsuType = '明槓';
             fu = 8;
             break;
-          case 'kak':        
+          case 'kakan':        
             mentsuType = '加槓';
             fu = 8;
             break;
@@ -428,12 +441,30 @@ function calc(){
      });
     }
     a1=b1=c1 = false;
-   //九連宝燈
-  if($('#haishi [data-hai*="01"]').length<3||$('#haishi [data-hai*="09"]').length<3||$('#haishi [data-hai*="02"]').length<1||$('#haishi [data-hai*="03"]').length<1||$('#haishi [data-hai*="04"]').length<1||$('#haishi [data-hai*="05"]').length<1||$('#haishi [data-hai*="06"]').length<1||$('#haishi [data-hai*="07"]').length<1||$('#haishi [data-hai*="08"]').length<1){
+    //九連宝燈
+    if($('#haishi [data-hai*="01"]').length<3||$('#haishi [data-hai*="09"]').length<3||$('#haishi [data-hai*="02"]').length<1||$('#haishi [data-hai*="03"]').length<1||$('#haishi [data-hai*="04"]').length<1||$('#haishi [data-hai*="05"]').length<1||$('#haishi [data-hai*="06"]').length<1||$('#haishi [data-hai*="07"]').length<1||$('#haishi [data-hai*="08"]').length<1){
       $('#option-yaku35').prop('checked', false);
     }
-    //三暗刻・四暗刻、役牌
-    if($('#haishi [data-mentsu*="kotsu"]').length > 0||$('#haishi [data-mentsu*="kan"]').length > 0){
+    //三暗刻・四暗刻
+    switch($('#haishi [data-mentsu^="anko"]').length + $('#haishi [data-mentsu^="ankan"]').length){
+      case 3:
+        $('#option-yaku11').prop('checked', false);
+        $('#option-yaku15').prop('checked', true);
+        if(hora==='01'&&$('#haishi ul:last-child').is($('[data-mentsu*="ko"]'))){
+            $('#option-yaku15').prop('checked', false);
+        }
+        break;
+      case 4:
+        $('#option-yaku11').prop('checked', false);
+        $('#option-yaku28').prop('checked', true);
+        if(hora==='01'&&$('#haishi ul:last-child').is($('[data-mentsu*="ko"]'))){
+            $('#option-yaku28').prop('checked', false);            
+        }
+        break;
+    }
+    
+    //役牌
+    if($('#haishi [data-mentsu*="ko"]').length > 0||$('#haishi [data-mentsu*="kan"]').length > 0){
       $('#option-yaku11').prop('checked', false);
       if($('#haishi [data-hai*="d01"]').length>2){
         if(jicha==='01'&&bakaze==='01'){$('#option-yaku40').prop('checked', true);}
@@ -459,72 +490,23 @@ function calc(){
       if($('#haishi [data-hai*="d06"]').length>2){yakuhai+=1;$('#option-yaku10').prop('checked', true);}
       if($('#haishi [data-hai*="d07"]').length>2){yakuhai+=1;$('#option-yaku10').prop('checked', true);}
       $('#option-yaku10').data('fan', yakuhai);
-      switch($('#haishi [data-mentsu*="kotsu"]').length){
-        case 1:
-          if($('#haishi [data-mentsu*="kotsu"] .landscape').length<2&&$('#haishi [data-mentsu*="ankan"]').length===2){
-            $('#option-yaku15').prop('checked', true);          
-          }
-          break;
-        case 2:
-          if($('#haishi [data-mentsu*="kotsu"] .landscape').length<2&&$('#haishi [data-mentsu*="ankan"]').length===1){
-            $('#option-yaku15').prop('checked', true);          
-          }
-          else if($('#haishi [data-mentsu*="kotsu"] .landscape').length<1&&$('#haishi [data-mentsu*="ankan"]').length===2){
-            $('#option-yaku28').prop('checked', true);          
-          }
-          break;
-        case 3:
-          if($('#haishi [data-mentsu*="ankan"]').length===1){
-            $('#option-yaku28').prop('checked', true);          
-          }
-          else if($('#haishi [data-mentsu*="kotsu"] .landscape').length<1){
-            $('#option-yaku15').prop('checked', true);
-          }
-          break;
-        case 4:
-          if($('#haishi [data-mentsu*="kotsu"] .landscape').length<1){
-            $('#option-yaku28').prop('checked', true);
-          }
-          else if($('#haishi [data-mentsu*="kotsu"] .landscape-re').length>0){
-            $('#option-yaku15').prop('checked', true);
-          }
-          else if(hora==='02'&&$('#haishi [data-mentsu*="kotsu"] .landscape').length===1){
-            $('#option-yaku15').prop('checked', true);
-          }
-          else if(hora==='01'&&$('#haishi [data-mentsu*="kotsu"] .landscape').length===1){
-            if($('#haishi [data-mentsu="atama"]').is(':last-child')){
-              $('#option-yaku15').prop('checked', true);
-            }
-          }
-          break;
-      }
-      if($('#option-yaku28').prop('checked')===true&&hora==="01"){
-          $('#option-yaku14').prop('checked', true);
-          $('#option-yaku15').prop('checked', true);
-          $('#option-yaku28').prop('checked', false);       
-      }
-    }
+     }
+
     //三槓子・四槓子
     if($('#haishi [data-mentsu*="kan"]').length > 0){
       $('#option-yaku11').prop('checked', false);
       switch($('#haishi [data-mentsu*="kan"]').length){
         case 3:
           $('#option-yaku23').prop('checked', true);
-          if($('#haishi [data-mentsu*="kotsu"]').length>0&&$('#haishi [data-mentsu*="ankan"]').length===3){
-            $('#option-yaku28').prop('checked', true);
-          }
           break;
         case 4:
           $('#option-yaku36').prop('checked', true);
-          if($('#haishi [data-mentsu*="ankan"]').length===4){
-            $('#option-yaku28').prop('checked', true);
-          }
           break;
       }
     }
 
     //聴牌判定
-    if($('#haishi ul:last-child').is('[data-mentsu*="kotsu"]')){
+    if($('#haishi ul:last-child').is('[data-mentsu*="ko"]')){
       tr = '<tr><th>聴牌</th><td>&nbsp;</td><td>双碰</td><td>0符</td></tr>';
       $('#option-yaku11').prop('checked',false);
       fu = 0;
@@ -538,7 +520,7 @@ function calc(){
       switch($('#haishi ul:last-child :last-child').data('hai').substr(1,2)){
         case '01':
           fu = 0;
-      		break;
+            break;
   			case '02':
     			if($('#haishi ul:last-child [data-hai*="01"]').length>0&&$('#haishi ul:last-child [data-hai*="03"]').length>0){
   					kanchan = true;
@@ -710,7 +692,7 @@ function scores(){
   
 fan = 0;
   $('[id*="option-yaku"]:checked').each(function(){
-    if($(this).data('fan')!='13'){
+    if($(this).data('fan')!=='13'){
       tr += '<tr><th>' + $(this).attr('value') + '</th><td>' + $(this).data('fan') + '飜</td></tr>';
     }
     else {
@@ -753,7 +735,7 @@ fan = 0;
   }
 
   if(moreHai){
-    alertModal('5つ以上存在する牌があります');
+    alertModal("5つ以上存在する牌があります");
     yaku = false;
   }
   else if($('[name="option-yaku"]:checked').length<1){
@@ -786,7 +768,7 @@ fan = 0;
         scoreKey = fan + '_' + fuResult;
       }
       scoreName = data[scoreKey].name;
-      if(oyako == '01'){
+      if(oyako === '01'){
         scoreResult = data[scoreKey].resultOya;
       }
       else{
@@ -798,7 +780,7 @@ fan = 0;
       score = '';
       score += '<span>' + scoreName + '</span>';
       score += '<strong>' + scoreResult + '</strong>';
-      if(oyako == '01'){
+      if(oyako === '01'){
         score += '<span>' + scoreOya + '</span>';    
       }
       else{

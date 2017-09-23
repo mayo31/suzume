@@ -30,7 +30,7 @@ function keyDelete(){
     $('#haishi > ul:last-child > li').attr('data-hai', '').removeClass('dora').removeClass('red');
   }
   
-  if($('#currentHai').data('mentsu')!='shuntsu'){
+  if($('#currentHai').data('mentsu')!=='shuntsu'){
     $('#keyboard [data-hai*="d0"]').removeAttr('class');
   }
 }
@@ -116,7 +116,7 @@ $(function(){
       var  keyNum = '';
       
       //雀頭
-      if(parent.is('[data-mentsu*="atama"]')||parent.is('[data-mentsu*="kotsu"]')||parent.is('[data-mentsu*="kan"]')){
+      if(parent.is('[data-mentsu*="atama"]')||parent.is('[data-mentsu*="ko"]')||parent.is('[data-mentsu*="kan"]')){
           $('#currentHai').parent().children().attr('data-hai', key);
       }
       //順子（あがり牌）
@@ -151,136 +151,136 @@ $(function(){
             keyNum = key.indexOf('0');
             switch (key.substr(keyNum,2)){
               case '01':
-                if(pre == '03'){
+                if(pre === '03'){
                   $('#currentHai').next().attr('data-hai', $(this).next().data('hai'));
                 }
                 else{
                   $('#currentHai').next().attr('data-hai', $(this).nextAll(':eq(1)').data('hai'));
-                };
+                }
                 keyRemove();
                 break;
               case '02':
-                if(pre == '01'){
+                if(pre === '01'){
                   $('#currentHai').next().attr('data-hai', $(this).next().data('hai'));
                   keyRemove();
                 }
-                else if(pre == '03'){
+                else if(pre === '03'){
                   $(this).prev().removeClass();$(this).nextAll(':eq(1)').removeClass();
                 }
-                else if(pre == '04'){
+                else if(pre === '04'){
                   $('#currentHai').next().attr('data-hai', $(this).next().data('hai'));
                   keyRemove();
-                };
+                }
                 break;
               case '03':
-                if(pre == '01'){
+                if(pre === '01'){
                   $('#currentHai').next().attr('data-hai', $(this).prev().data('hai'));
                   keyRemove();
                 }
-                else if(pre == '02'){
+                else if(pre === '02'){
                   $(this).prevAll(':eq(1)').removeClass();$(this).next().removeClass();
                 }
-                else if(pre == '04'){
+                else if(pre === '04'){
                   $(this).prev().removeClass();$(this).nextAll(':eq(1)').removeClass();
                 }
-                else if(pre == '05'){
+                else if(pre === '05'){
                   $('#currentHai').next().attr('data-hai', $(this).next().data('hai'));
                   keyRemove();
                 };
                 break;
               case '04':
-                if(pre == '02'){
+                if(pre === '02'){
                   $('#currentHai').next().attr('data-hai', $(this).prev().data('hai'));
                   keyRemove();
                 }
-                else if(pre == '03'){
+                else if(pre === '03'){
                   $(this).prevAll(':eq(1)').removeClass();$(this).next().removeClass();
                 }
-                else if(pre == '05'){
+                else if(pre === '05'){
                   $(this).prev().removeClass();$(this).nextAll(':eq(1)').removeClass();
                 }
-                else if(pre == '06'){
+                else if(pre === '06'){
                   $('#currentHai').next().attr('data-hai', $(this).next().data('hai'));
                   keyRemove();
-                };
+                }
                 break;
               case '05':
-                if(pre == '03'){
+                if(pre === '03'){
                   $('#currentHai').next().attr('data-hai', $(this).prev().data('hai'));
                   keyRemove();
                 }
-                else if(pre == '04'){
+                else if(pre === '04'){
                   $(this).prevAll(':eq(1)').removeClass();$(this).next().removeClass();
                 }
-                else if(pre == '06'){
+                else if(pre === '06'){
                   $(this).prev().removeClass();$(this).nextAll(':eq(1)').removeClass();
                 }
-                else if(pre == '07'){
+                else if(pre === '07'){
                   $('#currentHai').next().attr('data-hai', $(this).next().data('hai'));
                   keyRemove();
-                };
+                }
                 break;
               case '06':
-                if(pre == '04'){
+                if(pre === '04'){
                   $('#currentHai').next().attr('data-hai', $(this).prev().data('hai'));
                   keyRemove();
                 }
-                else if(pre == '05'){
+                else if(pre === '05'){
                   $(this).prevAll(':eq(1)').removeClass();$(this).next().removeClass();
                 }
-                else if(pre == '07'){
+                else if(pre === '07'){
                   $(this).prev().removeClass();$(this).nextAll(':eq(1)').removeClass();
                 }
-                else if(pre == '08'){
+                else if(pre === '08'){
                   $('#currentHai').next().attr('data-hai', $(this).next().data('hai'));
                   keyRemove();
-                };
+                }
                 break;
               case '07':
-                if(pre == '05'){
+                if(pre === '05'){
                   $('#currentHai').next().attr('data-hai', $(this).prev().data('hai'));
                   keyRemove();
                 }
-                else if(pre == '06'){
+                else if(pre === '06'){
                   $(this).prevAll(':eq(1)').removeClass();$(this).next().removeClass();
                 }
-                else if(pre == '08'){
+                else if(pre === '08'){
                   $(this).prev().removeClass();$(this).nextAll(':eq(1)').removeClass();
                 }
-                else if(pre == '09'){
+                else if(pre === '09'){
                   $('#currentHai').next().attr('data-hai', $(this).next().data('hai'));
                   keyRemove();
-                };
+                }
                 break;
               case '08':
-                if(pre == '06'){
+                if(pre === '06'){
                   $('#currentHai').next().attr('data-hai', $(this).prev().data('hai'));
                   keyRemove();
                 }
-                else if(pre == '07'){
+                else if(pre === '07'){
                   $(this).prevAll(':eq(1)').removeClass();$(this).next().removeClass();
                 }
-                else if(pre == '09'){
+                else if(pre === '09'){
                   $('#currentHai').next().attr('data-hai', $(this).prev().data('hai'));
                   keyRemove();
-                };
+                }
                 break;
               case '09':
-                if(pre == '07'){
+                if(pre === '07'){
                   $('#currentHai').next().attr('data-hai', $(this).prev().data('hai'));
                 }
                 else{
                   $('#currentHai').next().attr('data-hai', $(this).prevAll(':eq(1)').data('hai'));
-                };
+                }
                 keyRemove();
                 break;
-            };
+            }
             break;
           case 2:
           case 5:
           case 8:
           case 11:keyRemove();break;
-        };
+        }
       }
       //順子
       else if(parent.is('[data-mentsu*="shuntsu"]')){        
