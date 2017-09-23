@@ -2,25 +2,25 @@
 function resetHaishi(){
   $('#haishi').removeAttr('class');
   $('#haishi').html('');
-};
+}
 
 //牌姿の中でdata-haiが空の牌を探す
 function currentHai(){
   if($('#haishi ul:not([data-mentsu="atama"])').length > 3){$('#mentsu-input button:not(#atama)').attr('class', 'disabled')}
-  else{$('#mentsu-input button:not(#atama)').removeClass('disabled')};
+  else{$('#mentsu-input button:not(#atama)').removeClass('disabled');}
   
-  if(! $('#haishi [data-mentsu="atama"]').length){$('#atama').removeClass('disabled')}
+  if(! $('#haishi [data-mentsu="atama"]').length){$('#atama').removeClass('disabled');}
   
   $('#currentHai').removeAttr('id');
   var hList = $('#haishi [data-hai]');
   var len = hList.length;
   for (var i = 0; i < len; i++) {
-    if(hList[i].dataset.hai==''){
+    if(hList[i].dataset.hai===''){
       hList[i].id = 'currentHai';
       break;
     }
-  };
-  if($('#currentHai').is('[data-mentsu*="shuntsu"] li')){$('#keyboard [data-hai*="d0"]').attr('class', 'disabled')};
+  }
+  if($('#currentHai').is('[data-mentsu*="shuntsu"] li')){$('#keyboard [data-hai*="d0"]').attr('class', 'disabled');}
 }
 
 $(function(){
@@ -32,7 +32,7 @@ $(function(){
   var de = false;
 
   $('body').on('touchstart', '#haishi[class="mentsu-input"] li', function(e){
-  	this.touchX = event.changedTouches[0].pageX;
+      this.touchX = event.changedTouches[0].pageX;
   	this.touchY = event.changedTouches[0].pageY;
   });
   $('body').on('touchmove', '#haishi[class="mentsu-input"] li', function(e){
@@ -55,7 +55,7 @@ $(function(){
       $(this).parent().removeAttr('style');
       dr = false;
       re = false;
-    };
+    }
   });
   $('body').on('touchend', '#haishi[class="mentsu-input"] li', function(e){
     e.stopPropagation();
@@ -68,7 +68,7 @@ $(function(){
         $(this).parent().remove();
         keyRemove();
         currentHai();
-      };
+      }
     }
     else if(de){
       de = false;
@@ -78,12 +78,12 @@ $(function(){
       var dora = $(this).hasClass('dora');
       var red = $(this).hasClass('red');
       var five = '';
-      if($(this).is('[data-hai*="d05"]')){five = -1} else {five = $(this).data('hai').indexOf('05')};
+      if($(this).is('[data-hai*="d05"]')){five = -1;} else {five = $(this).data('hai').indexOf('05');}
       var hai = $('#haishi [data-hai*="' + $(this).data('hai').slice($(this).data('hai').indexOf('0')-1,3) + '"]');
-      if(five==-1&&!dora){
+      if(five===-1&&!dora){
   		  hai.addClass('dora');
       }
-      else if(five==-1&&dora){
+      else if(five===-1&&dora){
         hai.removeClass('dora');
       }
       else if(five>-1&&!dora&&!red){
@@ -99,9 +99,9 @@ $(function(){
       else if(five>-1&&dora&&red){
         hai.removeClass('dora');
         hai.removeClass('red');
-      };
+      }
       $(this).removeAttr('style');
-    };
+    }
     dr = true;
     re = false;
   });
@@ -123,7 +123,7 @@ $(function(){
       $(this).parent().removeAttr('style');
       dr = false;
       re = false;
-    };
+    }
   });
   $('body').on('touchend', '#haishi:not([class="mentsu-input"]) li', function(e){
     e.stopPropagation();
@@ -131,12 +131,12 @@ $(function(){
       var dora = $(this).hasClass('dora');
       var red = $(this).hasClass('red');
       var five = '';
-      if($(this).is('[data-hai*="d05"]')){five = -1} else {five = $(this).data('hai').indexOf('05')};
+      if($(this).is('[data-hai*="d05"]')){five = -1;} else {five = $(this).data('hai').indexOf('05');}
       var hai = $('#haishi [data-hai*="' + $(this).data('hai').slice($(this).data('hai').indexOf('0')-1,3) + '"]');
-      if(five==-1&&!dora){
+      if(five===-1&&!dora){
     	  hai.addClass('dora');
       }
-      else if(five==-1&&dora){
+      else if(five===-1&&dora){
         hai.removeClass('dora');
       }
       else if(five>-1&&!dora&&!red){
@@ -152,9 +152,9 @@ $(function(){
       else if(five>-1&&dora&&red){
         hai.removeClass('dora');
         hai.removeClass('red');
-      };
+      }
       $(this).removeAttr('style');
-    };
+    }
     dr = true;
     re = false;
     currentHai();
@@ -167,7 +167,7 @@ $(function(){
   });
   $('[data-settings="oyako"]').on('touchend', function(e){
     e.preventDefault();
-    if($('[data-oyako]').data('oyako')=='oyako01'){
+    if($('[data-oyako]').data('oyako')==='oyako01'){
       $('[data-settings="oyako"]').html('<button data-oyako="oyako02">子</button>');
     }
     else {
@@ -182,7 +182,7 @@ $(function(){
   });
   $('[data-settings="hora"]').on('touchend', function(e){
     e.preventDefault();
-    if($('[data-hora]').data('hora')=='hora01'){
+    if($('[data-hora]').data('hora')==='hora01'){
       $('[data-settings="hora"]').html('<button data-hora="hora02">ツモ</button>');
     }
     else {
@@ -249,19 +249,20 @@ $(function(){
     var arr = [];
     var domArr = [];
     $('[name="option-yaku"]').prop('disabled', false);
+
     if($('#option-yaku09').is(':checked')){
       $('li:nth-child(n+1):nth-child(-n+8) input').prop('checked', false).prop('disabled', true);
     } else if($('#option-yaku08').is(':checked')){
       $('li:nth-child(n+1):nth-child(-n+7) input').prop('checked', false).prop('disabled', true);
       $('li:nth-child(9) input').prop('checked', false).prop('disabled', true);
     } else {
-      if($('#option-yaku07').is(':checked')){arr.push('04','05','06','08','09')};
-      if($('#option-yaku06').is(':checked')){arr.push('04','05','07','08','09')};
-      if($('#option-yaku05').is(':checked')){arr.push('04','06','07','08','09')};
-      if($('#option-yaku04').is(':checked')){arr.push('05','06','07','08','09')};
-      if($('#option-yaku03').is(':checked')){arr.push('08','09')};
-      if($('#option-yaku02').is(':checked')){arr.push('01','08','09')};
-      if($('#option-yaku01').is(':checked')){arr.push('02','08','09')};
+      if($('#option-yaku07').is(':checked')){arr.push('04','05','06','08','09');}
+      if($('#option-yaku06').is(':checked')){arr.push('04','05','07','08','09');}
+      if($('#option-yaku05').is(':checked')){arr.push('04','06','07','08','09');}
+      if($('#option-yaku04').is(':checked')){arr.push('05','06','07','08','09');}
+      if($('#option-yaku03').is(':checked')){arr.push('08','09');}
+      if($('#option-yaku02').is(':checked')){arr.push('01','08','09');}
+      if($('#option-yaku01').is(':checked')){arr.push('02','08','09');}
       $.each(arr,function(i,value){
         var id = '#option-yaku' + arr[i];
         domArr.push($(id));
@@ -290,18 +291,18 @@ $(function(){
   $('#haishi-list [data-haishi*="haishi0"]').on('touchstart', function(e){
     e.preventDefault();
     var d = $(this).data('haishi');
-    if(d == 'haishi01'){
-      if($('#haishi01').prop('checked')==false){
+    if(d === 'haishi01'){
+      if($('#haishi01').prop('checked')===false){
         $('#haishi').replaceWith('<div id="haishi" class="mentsu-input"></div>');
         $('#keyboard .disabled').removeAttr('class');
       }
       else {
         html = $('#haishi').html();
         $('#haishi').replaceWith('<div id="haishi" class="mentsu-input">' + html + '</div>');
-      };
+      }
       $('#haishi01').replaceWith('<input type="radio" name="haishi" id="haishi01" checked>');
     }
-    else if(d == 'haishi02'){
+    else if(d === 'haishi02'){
       $('#haishi02').replaceWith('<input type="radio" name="haishi" id="haishi02" checked>');
     }
     else if(d == 'haishi03'){
@@ -367,11 +368,11 @@ $(function(){
   $('#kotsu01').on('touchend', function(e){
     e.preventDefault();
     var li = '';
-    switch ($('#haishi [data-mentsu*="kotsu"]').length){
-      case 0:li = '<ul data-mentsu="kotsu01"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 1:li = '<ul data-mentsu="kotsu02"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 2:li = '<ul data-mentsu="kotsu03"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 3:li = '<ul data-mentsu="kotsu04"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+    switch ($('#haishi [data-mentsu*="ko"]').length){
+      case 0:li = '<ul data-mentsu="anko01"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 1:li = '<ul data-mentsu="anko02"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 2:li = '<ul data-mentsu="anko03"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 3:li = '<ul data-mentsu="anko04"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
       default: break;
     };
     currentHai();
@@ -379,11 +380,11 @@ $(function(){
   $('#kotsu02').on('touchend', function(e){
     e.preventDefault();
     var li = '';
-    switch ($('#haishi [data-mentsu*="kotsu"]').length){
-      case 0:li = '<ul data-mentsu="kotsu01"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 1:li = '<ul data-mentsu="kotsu02"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 2:li = '<ul data-mentsu="kotsu03"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 3:li = '<ul data-mentsu="kotsu04"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+    switch ($('#haishi [data-mentsu*="ko"]').length){
+      case 0:li = '<ul data-mentsu="minko01"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 1:li = '<ul data-mentsu="minko02"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 2:li = '<ul data-mentsu="minko03"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 3:li = '<ul data-mentsu="minko04"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
       default: break;
     };
     currentHai();
@@ -391,11 +392,11 @@ $(function(){
   $('#kotsu03').on('touchend', function(e){
     e.preventDefault();
     var li = '';
-    switch ($('#haishi [data-mentsu*="kotsu"]').length){
-      case 0:li = '<ul data-mentsu="kotsu01"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 1:li = '<ul data-mentsu="kotsu02"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 2:li = '<ul data-mentsu="kotsu03"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 3:li = '<ul data-mentsu="kotsu04"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+    switch ($('#haishi [data-mentsu*="ko"]').length){
+      case 0:li = '<ul data-mentsu="minko01"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 1:li = '<ul data-mentsu="minko02"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 2:li = '<ul data-mentsu="minko03"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 3:li = '<ul data-mentsu="minko04"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
       default: break;
     };
     currentHai();
@@ -403,11 +404,11 @@ $(function(){
   $('#kotsu04').on('touchend', function(e){
     e.preventDefault();
     var li = '';
-    switch ($('#haishi [data-mentsu*="kotsu"]').length){
-      case 0:li = '<ul data-mentsu="kotsu01"><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
-      case 1:li = '<ul data-mentsu="kotsu02"><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
-      case 2:li = '<ul data-mentsu="kotsu03"><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
-      case 3:li = '<ul data-mentsu="kotsu04"><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
+    switch ($('#haishi [data-mentsu*="ko"]').length){
+      case 0:li = '<ul data-mentsu="minko01"><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
+      case 1:li = '<ul data-mentsu="minko02"><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
+      case 2:li = '<ul data-mentsu="minko03"><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
+      case 3:li = '<ul data-mentsu="minko04"><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
       default: break;
     };
     currentHai();
@@ -452,10 +453,10 @@ $(function(){
     e.preventDefault();
     var li = '';
     switch ($('#haishi [data-mentsu*="minkan"]').length){
-      case 0:li = '<ul data-mentsu="kan01"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 1:li = '<ul data-mentsu="kan02"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 2:li = '<ul data-mentsu="kan03"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 3:li = '<ul data-mentsu="kan04"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 0:li = '<ul data-mentsu="minkan01"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 1:li = '<ul data-mentsu="minkan02"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 2:li = '<ul data-mentsu="minkan03"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 3:li = '<ul data-mentsu="minkan04"><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
       default: break;
    };
     currentHai();
@@ -464,10 +465,10 @@ $(function(){
     e.preventDefault();
     var li = '';
     switch ($('#haishi [data-mentsu*="minkan"]').length){
-      case 0:li = '<ul data-mentsu="kan01"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 1:li = '<ul data-mentsu="kan02"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 2:li = '<ul data-mentsu="kan03"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
-      case 3:li = '<ul data-mentsu="kan04"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 0:li = '<ul data-mentsu="minkan01"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 1:li = '<ul data-mentsu="minkan02"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 2:li = '<ul data-mentsu="minkan03"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
+      case 3:li = '<ul data-mentsu="minkan04"><li data-hai=""></li><li data-hai="" class="landscape"></li><li data-hai=""></li><li data-hai=""></li></ul>';$('#haishi').append(li);break;
       default: break;
     };
     currentHai();
@@ -476,10 +477,10 @@ $(function(){
     e.preventDefault();
     var li = '';
     switch ($('#haishi [data-mentsu*="minkan"]').length){
-      case 0:li = '<ul data-mentsu="kan01"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
-      case 1:li = '<ul data-mentsu="kan02"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
-      case 2:li = '<ul data-mentsu="kan03"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
-      case 3:li = '<ul data-mentsu="kan04"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
+      case 0:li = '<ul data-mentsu="minkan01"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
+      case 1:li = '<ul data-mentsu="minkan02"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
+      case 2:li = '<ul data-mentsu="minkan03"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
+      case 3:li = '<ul data-mentsu="minkan04"><li data-hai=""></li><li data-hai=""></li><li data-hai=""></li><li data-hai="" class="landscape"></li></ul>';$('#haishi').append(li);break;
       default: break;
     };
     currentHai();
